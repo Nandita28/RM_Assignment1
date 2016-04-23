@@ -1,0 +1,138 @@
+---
+title: "First Programming language taught to Computer Science undergraduates"
+output: word_document
+---
+
+####Group Members: Nandita Ramakrishnan, Deepika Prasad, Mandar Vaze
+
+Data was collected about the schools offering Computer Science major to undergraduate students in Massachusetts, Minnesota, Louisiana, Kentucky, Maryland and Michigan. Based on the number of undergraduate students admitted, schools in the states were ranked and the top 10 schools in each state were identified 
+
+Then data about the first course and the first programming language offered to Computer Science Undergraduate students were collected. Using the data we have plotted a graph for each state showing the number of schools offering each of the programming language.
+
+```{r echo = FALSE, include=FALSE}
+library("readr")
+library("dplyr")
+library("plyr")
+library("ggplot2")
+```
+
+#State: Massachusetts(MA)
+
+```{r,fig.height=3.2, echo=FALSE}
+
+UnivData <- read.csv("UniversityData.csv")
+
+MassachusettsData <- filter(UnivData,State == "Massachusetts")%>% select(Language.used) %>% count('Language.used')
+
+
+ggplot(data=MassachusettsData, aes(x=Language.used, y=freq)) + 
+  geom_bar(fill="#DD8888", width=.4, stat="identity") + 
+  xlab("Programming Language") + ylab("Number of Schools") +
+  ggtitle("Languages taught by schools in Massachusetts") +
+  theme(axis.text = element_text(size = 14),
+  plot.title = element_text(color="purple", face="bold", size=14),
+  axis.title=element_text(margin=margin(10,20,10,10)),
+  plot.title = element_text(hjust = 0.5),
+  axis.title.x = element_text(colour = "black",face="bold"),
+  axis.title.y = element_text(colour ="black",face="bold"))
+
+```
+
+
+#State: Minnesota (MN)
+
+```{r, fig.height=3.2,fi.width=5, echo=FALSE}
+
+MinnesotaData <- filter(UnivData, State == "Minnesota")%>% select(Language.used) %>% count('Language.used')
+
+ggplot(data=MinnesotaData, aes(x=Language.used, y=freq)) + 
+  geom_bar(fill="#DD8888", width=.4, stat="identity") + 
+  xlab("Programming Language") + ylab("Number of Schools") +
+  ggtitle("Languages taught by schools in Minnesota") +
+  theme(axis.text = element_text(size = 14),
+  plot.title = element_text(color="purple", face="bold", size=14),
+  axis.title=element_text(margin=margin(10,20,10,10)),
+  plot.title = element_text(hjust = 0.5),
+  axis.title.x = element_text(colour = "black",face="bold"),
+  axis.title.y = element_text(colour = "black",face="bold"))
+
+```
+
+#State: Louisiana (LA)
+
+```{r,fig.height=3.2,fi.width=5, echo=FALSE}
+
+LouisianaData <- filter(UnivData, State == "Louisiana")%>% select(Language.used) %>% count('Language.used')
+
+ggplot(data=LouisianaData, aes(x=Language.used, y=freq)) + 
+  geom_bar(fill="#DD8888", width=.4, stat="identity") + 
+  xlab("Programming Language") + ylab("Number of Schools") +
+  ggtitle("Languages taught by schools in Louisiana") +
+  theme(axis.text = element_text(size = 14),
+  plot.title = element_text(color="purple", face="bold", size=14),
+  axis.title=element_text(margin=margin(10,20,10,10)),
+  plot.title = element_text(hjust = 0.5),
+  axis.title.x = element_text(colour = "black",face="bold"),
+  axis.title.y = element_text(colour = "black",face="bold"))
+
+```
+
+
+#State: Kentucky (KY)
+
+```{r,fig.height=3.2,fi.width=5, echo=FALSE}
+
+KentuckyData <- filter(UnivData, State == "Kentucky")%>% select(Language.used) %>% count('Language.used')
+
+ggplot(data=KentuckyData, aes(x=Language.used, y=freq)) + 
+  geom_bar(fill="#DD8888", width=.4, stat="identity") + 
+  xlab("Programming Language") + ylab("Number of Schools") +
+  ggtitle("Languages taught by schools in Kentucky") +
+  theme(axis.text = element_text(size = 12),
+  plot.title = element_text(color="purple", face="bold", size=14),
+  axis.title=element_text(margin=margin(10,20,10,10)),
+  plot.title = element_text(hjust = 0.5),
+  axis.title.x = element_text(colour = "black",face="bold"),
+  axis.title.y = element_text(colour = "black",face="bold"))
+
+```
+
+
+#State: Maryland (MD)
+
+```{r,fig.height=3.2,fi.width=5, echo=FALSE}
+
+MarylandData <- filter(UnivData, State == "Maryland")%>% select(Language.used) %>% count('Language.used')
+
+ggplot(data=MarylandData, aes(x=Language.used, y=freq)) + 
+  geom_bar(fill="#DD8888", width=.4, stat="identity") + 
+  xlab("Programming Language") + ylab("Number of Schools") +
+  ggtitle("Languages taught by schools in Maryland") +
+  theme(axis.text = element_text(size = 12),
+  plot.title = element_text(color="purple", face="bold", size=14),
+  axis.title=element_text(margin=margin(10,20,10,10)),
+  plot.title = element_text(hjust = 0.5),
+  axis.title.x = element_text(colour = "black",face="bold"),
+  axis.title.y = element_text(colour = "black",face="bold"))
+
+```
+
+
+#State: Michigan (MI)
+
+```{r,fig.height=3.2,fi.width=5, echo=FALSE}
+
+MichiganData <- filter(UnivData, State == "Michigan")%>% select(Language.used) %>% count('Language.used')
+
+ggplot(data=MichiganData, aes(x=Language.used, y=freq)) + 
+  geom_bar(fill="#DD8888", width=.4, stat="identity") + 
+  xlab("Programming Language") + ylab("Number of Schools") +
+  ggtitle("Languages taught by schools in Michigan") +
+  theme(axis.text = element_text(size = 12),
+  plot.title = element_text(color="purple", face="bold", size=14),
+  axis.title=element_text(margin=margin(10,20,10,10)),
+  plot.title = element_text(hjust = 0.5),
+  axis.title.x = element_text(colour = "black",face="bold"),
+  axis.title.y = element_text(colour = "black",face="bold"))
+
+```
